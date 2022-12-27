@@ -1,5 +1,7 @@
 package com.sevensevensgi.springsecurity.model;
 
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -10,6 +12,8 @@ import javax.persistence.Table;
 import java.util.*;
 
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name = "users")
 public class User implements UserDetails {
 

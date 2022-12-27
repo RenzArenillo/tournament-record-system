@@ -3,8 +3,12 @@ package com.sevensevensgi.springsecurity.model;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
+@EqualsAndHashCode
+@ToString
 @Table(name = "team")
 public class Team {
     @Id

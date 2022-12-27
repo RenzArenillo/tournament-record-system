@@ -1,0 +1,29 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<a href="home">Home</a>
+<a href="approval_page">Pending Approvals</a>
+<a href="games">Games</a>
+<a href="records">Records</a>
+<a href="teams">Teams</a>
+<a href="managers">Managers</a>
+<a href="officials">Officials</a>
+
+<br>
+<table>
+    <thead>
+    <tr>
+        <th>Teams</th>
+    </tr>
+    </thead>
+    <tbody>
+        <tr th:each="team: ${teams}">
+            <td th:text="${team.name}">
+        </tr>
+    </tbody>
+</table>
+</body>
+</html>
