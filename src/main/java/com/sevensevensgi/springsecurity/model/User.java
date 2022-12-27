@@ -24,6 +24,11 @@ public class User implements UserDetails {
 
     private boolean isEnabled;
 
+    private String fullname;
+
+    private Integer teamId;
+
+
     public Integer getId() {
         return id;
     }
@@ -56,6 +61,13 @@ public class User implements UserDetails {
         this.role = role;
     }
 
+    public String getFullname() {
+        return fullname;
+    }
+
+    public void setFullname(String fullname) {
+        this.fullname = fullname;
+    }
     public boolean getIsEnabled() {
         return isEnabled;
     }
@@ -92,11 +104,6 @@ public class User implements UserDetails {
         return true;
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see java.lang.Object#toString()
-     */
     @Override
     public String toString() {
         return "User [id=" + id + ", username=" + username + ", password=" + password + "]";

@@ -15,5 +15,10 @@ public class MainController {
         return "access-denied";
     }
 
+    @GetMapping("/all")
+    public String forAll(){
+        return "forAll/page1";
+    }
+
 }
 
