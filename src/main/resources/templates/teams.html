@@ -1,10 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Title</title>
 </head>
 <body>
+<a href="home">Home</a>
+<a href="results">Results</a>
+<a href="teams">Teams</a>
+<a href="upcoming">Upcoming Events</a>
 
+<br>
+<b>Teams</b>
+<table>
+    <thead>
+    <tr>
+        <th>ID</th>
+        <th>Team Name</th>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="team: ${teams}">
+        <td th:text="${team.id}">
+        <td th:text="${team.name}">
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

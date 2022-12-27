@@ -1,6 +1,7 @@
 package com.sevensevensgi.springsecurity.controller;
 
 import com.sevensevensgi.springsecurity.model.User;
+import com.sevensevensgi.springsecurity.repository.GameRecordResultsRepository;
 import com.sevensevensgi.springsecurity.repository.TeamRepository;
 import com.sevensevensgi.springsecurity.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,6 +21,9 @@ public class AdminController {
 
     @Autowired
     private UserRepository userRepo;
+
+    @Autowired
+    private GameRecordResultsRepository recordRepo;
 
     @GetMapping("/home")
     public String forAdmin(Principal p, ModelMap m){
