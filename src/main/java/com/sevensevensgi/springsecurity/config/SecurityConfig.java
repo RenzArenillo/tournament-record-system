@@ -21,26 +21,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     public AuthenticationSuccessHandler customSuccessHandler;
 
-//    @Override
-//    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-//        User.UserBuilder users = User.withDefaultPasswordEncoder();
-//
-//        auth.inMemoryAuthentication()
-//                .withUser(users.username("sarah").password("test123").roles("EMPLOYEE"))
-//                .withUser(users.username("leo").password("test123").roles("MANAGER"))
-//                .withUser(users.username("mark").password("test123").roles("ADMIN"))
-//                .withUser(users.username("aris").password("test123").roles("EMPLOYEE","MANAGER","ADMIN"));
-//
-//    }
-
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/page/manager").hasRole("MANAGER")
                 .antMatchers("/page/admin").hasRole("ADMIN")
-                .antMatchers("/page/employee").hasRole("EMPLOYEE")
-                .antMatchers("/page/all").hasAnyRole("MANAGER", "ADMIN", "EMPLOYEE")
-                .antMatchers("/home").hasAnyRole("MANAGER", "ADMIN", "EMPLOYEE")
+                .antMatchers("/page/manager").hasRole("MANAGER")
+                .antMatchers("/page/official").hasRole("OFFICIAL")
                 .and()
                 .formLogin()
                 .successHandler(customSuccessHandler)
