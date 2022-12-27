@@ -22,6 +22,8 @@ public class GameRecordResult {
 
     private Integer officialID;
 
+    private Integer score;
+
     public Integer getId() {
         return id;
     }
@@ -44,6 +46,14 @@ public class GameRecordResult {
 
     public void setTeamID(Integer teamID) {
         this.teamID = teamID;
+    }
+
+    public Integer getScore() {
+        return score;
+    }
+
+    public void setScore(Integer score) {
+        this.score = score;
     }
 
     public Integer getOfficialID() {

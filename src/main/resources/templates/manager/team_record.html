@@ -1,0 +1,31 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
+<title>Title</title>
+</head>
+<body>
+<a href="home">Home</a>
+<a href="roster">Team Roster</a>
+<a href="games">Games Played</a>
+
+<br>
+<b>Team Records</b>
+<table>
+    <thead>
+    <tr>
+        <th>Game ID</th>
+        <th>Official ID</th>
+        <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="game: ${games}">
+        <td th:text="${game.id}">
+        <td th:text="${game.officialID}">
+        <td th:text="${game.score}">
+
+    </tr>
+    </tbody>
+</table>
+</body>
+</html>

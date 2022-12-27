@@ -72,6 +72,23 @@ public class User implements UserDetails {
     public void setFullname(String fullname) {
         this.fullname = fullname;
     }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public void setEnabled(boolean enabled) {
+        isEnabled = enabled;
+    }
+
+    public Integer getTeamId() {
+        return teamId;
+    }
+
+    public void setTeamId(Integer teamId) {
+        this.teamId = teamId;
+    }
+
     public boolean getIsEnabled() {
         return isEnabled;
     }

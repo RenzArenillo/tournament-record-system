@@ -62,4 +62,16 @@ public class AdminController {
         m.addAttribute("teams", teamRepo.findAll());
         return "admin/view_teams";
     }
+
+    @GetMapping("/create_game")
+    public String createGame(ModelMap m){
+        return "admin/create_game";
+    }
+
+    @GetMapping("/logout")
+    public String logout(ModelMap m){
+        return "redirect:/logout";
+    }
+
+
 }
