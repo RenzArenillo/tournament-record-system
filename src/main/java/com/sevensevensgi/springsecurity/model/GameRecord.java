@@ -1,13 +1,17 @@
 package com.sevensevensgi.springsecurity.model;
 
+import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.ToString;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import java.sql.Date;
 
 @Entity
+@Data
 @EqualsAndHashCode
 @ToString
 @Table(name = "gamerecord")
@@ -16,9 +20,14 @@ public class GameRecord {
     @Id
     private Integer id;
 
-    private Integer gameID;
+//    private Integer gameID;
+    @ManyToOne
+    private Game gameID;
 
-    private String schedule;
+//    private String schedule;
+    private Date date;
+
+    private String time;
 
     private String description;
 
@@ -30,27 +39,4 @@ public class GameRecord {
         this.id = id;
     }
 
-    public Integer getGameID() {
-        return gameID;
-    }
-
-    public void setGameID(Integer gameID) {
-        this.gameID = gameID;
-    }
-
-    public String getSchedule() {
-        return schedule;
-    }
-
-    public void setSchedule(String schedule) {
-        this.schedule = schedule;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
-    }
 }

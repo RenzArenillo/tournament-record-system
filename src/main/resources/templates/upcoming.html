@@ -1,5 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<meta charset="UTF-8">
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
@@ -8,7 +9,28 @@
 <a href="home">Home</a>
 <a href="results">Results</a>
 <a href="teams">Teams</a>
+<a href="today">Today's Events</a>
 <a href="upcoming">Upcoming Events</a>
-Stay tuned for the next games!
+<br>
+<b>Upcoming Events for the Tournament</b>
+<table>
+    <thead>
+    <tr>
+        <th>Sport</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="game: ${upcoming}">
+        <td th:text="${game.gameID.category}">
+        <td th:text="${game.description}">
+        <td th:text="${game.date}">
+        <td th:text="${game.time}">
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>
