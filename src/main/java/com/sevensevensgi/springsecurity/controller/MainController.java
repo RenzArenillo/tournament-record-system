@@ -1,12 +1,17 @@
 package com.sevensevensgi.springsecurity.controller;
 
+import com.sevensevensgi.springsecurity.model.Team;
 import com.sevensevensgi.springsecurity.repository.GameRecordRepository;
 import com.sevensevensgi.springsecurity.repository.GameRecordResultsRepository;
+import com.sevensevensgi.springsecurity.repository.PlayerRepository;
 import com.sevensevensgi.springsecurity.repository.TeamRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import java.util.Date;
 
@@ -17,10 +22,15 @@ public class MainController {
     private TeamRepository teamRepo;
 
     @Autowired
+    private PlayerRepository playerRepo;
+
+    @Autowired
     private GameRecordResultsRepository recordRepo;
 
     @Autowired
     private GameRecordRepository gameRepo;
+
+
 
     @GetMapping({"/home", "/"})
     public String home() {
@@ -58,6 +68,13 @@ public class MainController {
         return "teams";
     }
 
+    @RequestMapping(value = "/team{id}", method = RequestMethod.GET)
+    public String appointment(@PathVariable("id") int id, ModelMap m) {
+        teamRepo.findById(id).ifPresent(o -> m.addAttribute("team", o));
+        m.addAttribute("members", playerRepo.findByTeamID(id));
+
+        return "team_info";
+    }
 
 }
 

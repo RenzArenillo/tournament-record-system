@@ -13,15 +13,15 @@
 <table>
     <thead>
     <tr>
-        <th>Game ID</th>
-        <th>Official ID</th>
+        <th>Game No.</th>
+        <th>Official</th>
         <th>Score</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="game: ${games}">
-        <td th:text="${game.id}">
-        <td th:text="${game.officialID}">
+        <td th:text="${game.gamerecordID.id}">
+        <td th:text="${game.officialID.fullname}">
         <td th:text="${game.score}">
 
     </tr>

@@ -17,16 +17,20 @@
     <thead>
     <tr>
         <th>Game No.</th>
-        <th>Team ID</th>
-        <th>Official ID</th>
+        <th>Sports</th>
+        <th>Date Played</th>
+        <th>Team</th>
+        <th>Official</th>
         <th>Score</th>
     </tr>
     </thead>
     <tbody>
     <tr th:each="result: ${results}">
-        <td th:text="${result.gamerecordID}">
-        <td th:text="${result.teamID}">
-        <td th:text="${result.officialID}">
+        <td th:text="${result.gamerecordID.id}">
+        <td th:text="${result.gamerecordID.gameID.category}">
+        <td th:text="${result.gamerecordID.date}">
+        <td th:text="${result.teamID.name}">
+        <td th:text="${result.officialID.fullname}">
         <td th:text="${result.score}">
 
     </tr>

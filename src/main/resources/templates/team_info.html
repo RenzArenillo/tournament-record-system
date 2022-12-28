@@ -11,21 +11,27 @@
 <a href="upcoming">Upcoming Events</a>
 
 <br>
-<b>Teams</b>
+<br>
+<b>[[${team.name}]]</b>
+<br>
+<b>Members</b>
 <table>
-    <thead>
-    <tr>
-        <th>Team Name</th>
-        <th>Action</th>
+  <thead>
+  <tr>
+    <th>ID</th>
+    <th>Name</th>
+    <th>Sports</th>
 
-    </tr>
-    </thead>
-    <tbody>
-    <tr th:each="team: ${teams}">
-        <td th:text="${team.name}">
-        <td><a th:href="@{'team' + ${team.id}}"><button>View Team</button></a></td>
-    </tr>
-    </tbody>
+  </tr>
+  </thead>
+  <tbody>
+  <tr th:each="member: ${members}">
+    <td th:text="${member.id}">
+    <td th:text="${member.fullname}">
+    <td th:text="${member.gameID.category}">
+
+  </tr>
+  </tbody>
 </table>
 </body>
 </html>

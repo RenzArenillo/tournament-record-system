@@ -14,6 +14,29 @@
 <a href="officials">Officials</a>
 
 <br>
-Records
+<b>Game Records</b>
+<table>
+    <thead>
+    <tr>
+        <th>Game No.</th>
+        <th>Sports</th>
+        <th>Date Played</th>
+        <th>Team</th>
+        <th>Official</th>
+        <th>Score</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="result: ${results}">
+        <td th:text="${result.gamerecordID.id}">
+        <td th:text="${result.gamerecordID.gameID.category}">
+        <td th:text="${result.gamerecordID.date}">
+        <td th:text="${result.teamID.name}">
+        <td th:text="${result.officialID.fullname}">
+        <td th:text="${result.score}">
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

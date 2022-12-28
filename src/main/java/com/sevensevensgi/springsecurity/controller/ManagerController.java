@@ -41,7 +41,9 @@ public class ManagerController {
     @GetMapping("/games")
     public String games(ModelMap m, Principal p){
         User user = userRepo.findByUsername(p.getName());
-        m.addAttribute("games", recordRepo.findByTeamID(user.getTeamId()));
+        teamRepo.findById(user.getTeamId()).ifPresent(o -> m.addAttribute("games", recordRepo.findByTeamID(o)));
+
+//        m.addAttribute("games", recordRepo.findByTeamID(o));
         return "manager/team_record";
     }
 

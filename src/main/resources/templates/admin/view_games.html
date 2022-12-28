@@ -16,6 +16,24 @@
 <br>
 <a href="create_game">Create Game</a>
 <br>
-Games
+<table>
+    <thead>
+    <tr>
+        <th>Sport</th>
+        <th>Description</th>
+        <th>Date</th>
+        <th>Time</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="game: ${games}">
+        <td th:text="${game.gameID.category}">
+        <td th:text="${game.description}">
+        <td th:text="${game.date}">
+        <td th:text="${game.time}">
+
+    </tr>
+    </tbody>
+</table>
 </body>
 </html>

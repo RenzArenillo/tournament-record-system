@@ -1,6 +1,8 @@
 package com.sevensevensgi.springsecurity.controller;
 
+import com.sevensevensgi.springsecurity.model.GameRecord;
 import com.sevensevensgi.springsecurity.model.User;
+import com.sevensevensgi.springsecurity.repository.GameRecordRepository;
 import com.sevensevensgi.springsecurity.repository.GameRecordResultsRepository;
 import com.sevensevensgi.springsecurity.repository.TeamRepository;
 import com.sevensevensgi.springsecurity.repository.UserRepository;
@@ -11,6 +13,9 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.security.Principal;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Controller
 @RequestMapping("/admin")
@@ -18,6 +23,9 @@ public class AdminController {
 
     @Autowired
     private TeamRepository teamRepo;
+
+    @Autowired
+    private GameRecordRepository gameRepo;
 
     @Autowired
     private UserRepository userRepo;
@@ -38,7 +46,18 @@ public class AdminController {
     }
 
     @GetMapping("/games")
-    public String games(){
+    public String games(ModelMap m){
+
+        Date date = new Date();
+        List<GameRecord> today = gameRepo.findByDate(date);
+        List<GameRecord> upcoming = gameRepo.findByDateAfterOrderByDate(date);
+        List<GameRecord> merged = new ArrayList<>();
+        merged.addAll(today);
+        merged.addAll(upcoming);
+
+        m.addAttribute("games", merged);
+
+
         return "admin/view_games";
     }
 
@@ -57,7 +76,10 @@ public class AdminController {
     }
 
     @GetMapping("/records")
-    public String records(){
+    public String records(ModelMap m){
+
+        m.addAttribute("results", recordRepo.findAll());
+
         return "admin/view_records";
     }
 
